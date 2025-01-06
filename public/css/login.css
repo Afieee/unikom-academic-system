@@ -1,0 +1,169 @@
+/* Global Style */
+* {
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #ecf0f1;
+    margin: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Container for login form */
+.login-container {
+    background-color: #ffffff;
+    padding: 2rem;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    border-radius: 12px;
+    width: 100%;
+    max-width: 500px;
+    text-align: center;
+    transition: all 0.3s ease;
+    animation: fadeIn 0.8s ease-out;
+}
+
+/* Heading */
+.login-container h1 {
+    font-size: 2rem;
+    font-weight: bold;
+    color: #3498db;
+    margin-bottom: 1.5rem;
+    text-transform: uppercase;
+}
+
+/* Form styling */
+.login-container table {
+    width: 100%;
+    margin-top: 1rem;
+    text-align: left;
+}
+
+.login-container td {
+    padding: 0.8rem 0;
+    color: #333;
+    font-size: 1.1rem;
+}
+
+/* Input fields styling */
+.login-container input[type="text"],
+.login-container input[type="password"] {
+    width: 100%;
+    padding: 1rem;
+    border: 2px solid #ccc;
+    border-radius: 8px;
+    margin-top: 0.5rem;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+}
+
+/* Hover effect on input fields */
+.login-container input[type="text"]:focus,
+.login-container input[type="password"]:focus {
+    border-color: #3498db;
+    box-shadow: 0 0 5px rgba(52, 152, 219, 0.8);
+}
+
+/* Styling for the login button */
+.login-container button {
+    width: 100%;
+    padding: 1rem;
+    background-color: #3498db;
+    color: white;
+    font-weight: bold;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    margin-top: 1.5rem;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Hover effect on button */
+.login-container button:hover {
+    background-color: #2980b9;
+    transform: translateY(-3px);
+}
+
+/* Link styling */
+.login-container a {
+    display: block;
+    margin-top: 1rem;
+    color: #3498db;
+    text-decoration: none;
+    font-size: 0.9rem;
+}
+
+.login-container a:hover {
+    text-decoration: underline;
+}
+
+/* Checkbox styling */
+.login-container label {
+    display: inline-flex;
+    align-items: center;
+    color: #3498db;
+    font-size: 0.9rem;
+}
+
+.login-container input[type="checkbox"] {
+    margin-right: 8px;
+}
+
+/* Show password style on hover */
+.show-password:hover {
+    cursor: pointer;
+    color: #2980b9;
+}
+
+/* Modal animations (if needed for popups) */
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Responsive for mobile screens */
+@media (max-width: 600px) {
+    .login-container {
+        padding: 1.5rem;
+        width: 90%;
+    }
+
+    .login-container h1 {
+        font-size: 1.5rem;
+    }
+
+    .login-container input[type="text"],
+    .login-container input[type="password"],
+    .login-container button {
+        font-size: 0.95rem;
+        padding: 0.9rem;
+    }
+
+    .login-container a {
+        font-size: 0.85rem;
+    }
+
+    /* Adjusting logo size for mobile */
+    .login-container img {
+        width: 120px;
+        margin-bottom: 1rem;
+    }
+
+    .login-container label {
+        font-size: 0.8rem;
+    }
+}

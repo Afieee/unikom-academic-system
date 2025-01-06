@@ -1,0 +1,47 @@
+/* Tombol Sinkronisasi */
+.sync-btn {
+    background-color: #3498db;
+    /* Warna latar belakang biru */
+    color: white;
+    /* Warna teks putih */
+    border: none;
+    /* Menghapus border default */
+    padding: 5px 5px;
+    /* Padding untuk tombol */
+    font-size: 12px;
+    /* Ukuran font tombol */
+    border-radius: 10px;
+    /* Sudut melengkung */
+    cursor: pointer;
+    /* Menunjukkan kursor pointer */
+    transition: background-color 0.3s ease;
+    /* Animasi perubahan warna */
+    margin-left: 75%;
+}
+
+/* Ikon Sinkronisasi */
+.sync-icon {
+    margin-right: 10px;
+    /* Memberi jarak antara ikon dan teks */
+    transition: transform 0.5s ease;
+    /* Animasi rotasi */
+}
+
+/* Animasi saat hover */
+.sync-btn:hover {
+    background-color: #b96329;
+    /* Ubah warna latar saat hover */
+}
+
+.sync-btn:hover .sync-icon {
+    transform: rotate(360deg);
+    /* Rotasi ikon sinkronisasi */
+}
+
+/* Responsif agar tombol tidak memenuhi halaman */
+.sync-btn {
+    /* margin-left: 80px auto; */
+    display: block;
+    max-height: 130px;
+    max-width: 310px;
+}

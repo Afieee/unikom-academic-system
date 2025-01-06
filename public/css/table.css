@@ -1,0 +1,98 @@
+/* General styles for the table */
+.styled-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+    font-size: 16px;
+    text-align: left;
+    border-radius: 8px;
+    /* Rounded corners */
+    overflow: hidden;
+    /* Prevents border-radius clipping */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    /* Soft shadow for depth */
+}
+
+/* Table headers */
+.styled-table th {
+    background-color: #4CAF50;
+    /* Dark green background */
+    color: white;
+    padding: 15px 20px;
+    text-align: center;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    border-bottom: 2px solid #ddd;
+    /* Slightly thicker bottom border */
+}
+
+/* Table data */
+.styled-table td {
+    padding: 12px 20px;
+    border-bottom: 1px solid #ddd;
+    /* Lighter bottom border for separation */
+}
+
+/* Alternating row colors */
+.styled-table tbody tr:nth-child(even) {
+    background-color: #f9f9f9;
+    /* Very light gray for even rows */
+}
+
+.styled-table tbody tr:nth-child(odd) {
+    background-color: #ffffff;
+    /* White for odd rows */
+}
+
+/* Hover effect for rows */
+.styled-table tbody tr:hover {
+    background-color: #f1f1f1;
+    /* Light gray on hover */
+    transform: translateY(-2px);
+    /* Slightly lift the row on hover */
+    transition: background-color 0.3s, transform 0.3s ease;
+    /* Smooth transition */
+}
+
+/* Table borders */
+.styled-table td,
+.styled-table th {
+    border: 1px solid #e0e0e0;
+    /* Lighter border for a more subtle look */
+}
+
+/* Add some spacing around the page */
+.content {
+    padding: 20px;
+    background-color: #f4f4f4;
+    /* Light background around the table */
+    border-radius: 10px;
+    /* Rounded corners around content */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+    /* Slight shadow around content */
+}
+
+/* Table caption */
+.styled-table caption {
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 10px;
+    text-align: center;
+    color: #333;
+    text-transform: uppercase;
+}
+
+/* Responsive table adjustments */
+@media (max-width: 768px) {
+    .styled-table {
+        font-size: 14px;
+        /* Smaller font size on mobile */
+        margin: 10px 0;
+    }
+
+    .styled-table th,
+    .styled-table td {
+        padding: 10px;
+    }
+}
