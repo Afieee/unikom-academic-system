@@ -22,7 +22,8 @@
     font-weight: bold;
 }
 
-.styled-table th, .styled-table td {
+.styled-table th,
+.styled-table td {
     padding: 12px 15px;
     text-align: center;
 }
@@ -52,21 +53,24 @@
 
 /* Button Style */
 .btn-give-score {
-    background: linear-gradient(135deg, #ff7e5f, #feb47b);
-    color: black;
+    background-color: #4CAF50;
+    /* Warna hijau sederhana */
+    color: white;
     border: none;
     padding: 10px 18px;
-    border-radius: 25px;
+    border-radius: 5px;
+    /* Lebih sederhana dengan radius lebih kecil */
     cursor: pointer;
     font-size: 14px;
     font-weight: bold;
     text-transform: uppercase;
-    transition: all 0.3s ease;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    transition: all 0.2s ease;
+    /* Peralihan lebih halus */
 }
 
 .btn-give-score:hover {
-    background: linear-gradient(135deg, #feb47b, #ff7e5f);
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
-    transform: translateY(-2px);
+    background-color: #45a049;
+    /* Warna sedikit lebih gelap saat hover */
+    transform: translateY(-1px);
+    /* Efek sedikit angkat saat hover */
 }

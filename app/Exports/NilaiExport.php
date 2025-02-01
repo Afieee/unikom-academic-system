@@ -45,7 +45,7 @@ class NilaiExport implements FromCollection, WithHeadings
             ['Nama:', $this->nama], // Baris 1, kolom 1 dan 2
             ['NIM:', $this->nim],   // Baris 2, kolom 1 dan 2
             [],                      // Baris kosong sebelum tabel
-            ['ID Matakuliah', 'Nama Matakuliah', 'SKS', 'Semester', 'NA', 'Indeks']
+            ['ID Matakuliah', 'Nama Matakuliah', 'SKS', 'Semester', 'Nilai Akhir', 'Indeks']
         ];
     }
 

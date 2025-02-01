@@ -9,7 +9,7 @@
     <div class="content">
         <div class="page-title">
             <i class="fas fa-home"></i>
-            <h1>Halaman Utama</h1>
+            <h1>Riwayat Nilai</h1>
         </div>
         <div class="semester-info">
             <i class="fas fa-calendar-alt"></i>
