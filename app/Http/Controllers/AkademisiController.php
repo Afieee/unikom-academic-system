@@ -324,16 +324,30 @@ class AkademisiController extends Controller
                 'perwalian.id_matakuliah',
                 'perwalian.index',
                 'matakuliah.nama_matakuliah',
+                'perwalian.na',
                 'matakuliah.semester',
             ]);
 
+
+        $indexCounts = [
+            'A' => $nilai->where('index', 'A')->count(),
+            'B' => $nilai->where('index', 'B')->count(),
+            'C' => $nilai->where('index', 'C')->count(),
+            'D' => $nilai->where('index', 'D')->count(),
+            'E' => $nilai->where('index', 'E')->count(),
+        ];
+
+
+
+
         return view('mahasiswa.view-nilai', [
             'nilai' => $nilai,
+            'indexCounts' => $indexCounts,
         ]);
     }
 
-    public function exportNilai($nim)
+    public function exportNilai($nim, $nama)
     {
-        return Excel::download(new NilaiExport($nim), 'nilai-mahasiswa.xlsx');
+        return Excel::download(new NilaiExport($nim, $nama), 'nilai-mahasiswa.xlsx');
     }
 }

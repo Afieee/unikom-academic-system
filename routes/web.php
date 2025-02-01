@@ -37,11 +37,13 @@ Route::post('/register-berhasil', [RegisterController::class, 'tambahPenggunaAka
 Route::post('/profile/update-foto/{id_users}', [ProfileController::class, 'updateFotoProfile']);
 
 
-
 Route::get('/manajemen-view-mahasiswa', [AkademisiController::class, 'halamanViewMahasiswa']);
 Route::get('/manajemen-view-dosen', [AkademisiController::class, 'halamanViewDosen']);
 Route::get('/manajemen-view-sekretariat', [AkademisiController::class, 'halamanViewSekretariat']);
-Route::get('/manajemen-view-matakuliah', [AkademisiController::class, 'halamanViewMatakuliah']);
+Route::get('/manajemen-view-matakuliah', [AkademisiController::class, 'halamanViewMatakuliah'])->name('sekre.view.matkul');
+Route::get('/manajemen-view-tambah-matakuliah', [MatakuliahController::class, 'halamanTambahMatakuliah']);
+Route::post('/proses-tambah-matakuliah', [MatakuliahController::class, 'simpanMatakuliah']);
+
 Route::get('/manajemen-akademisi', [AkademisiController::class, 'halamanViewAkademisi']);
 
 
@@ -49,7 +51,7 @@ Route::get('/manajemen-akademisi', [AkademisiController::class, 'halamanViewAkad
 Route::get('/mahasiswa-view-kurikulum', [MatakuliahController::class, 'mahasiswaTampilMatakuliah']);
 Route::get('/mahasiswa-view-jadwal', [MatakuliahController::class, 'tampilJadwalMahasiswa']);
 Route::get('/mahasiswa-view-nilai', [AkademisiController::class, 'historyNilaiMahasiswa']);
-Route::get('/export-nilai/{nim}', [AkademisiController::class, 'exportNilai']);
+Route::get('/export-nilai/{nim}/{nama}', [AkademisiController::class, 'exportNilai']);
 
 
 

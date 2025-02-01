@@ -51,6 +51,7 @@
             </form>
 
             <h1><b>Data Matakuliah</b></h1>
+            <a href="/manajemen-view-tambah-matakuliah" class="tambah-matakuliah">Tambah Matakuliah</a>
             <table class="styled-table">
                 <thead>
                     <tr>

@@ -230,12 +230,14 @@ body {
 }
 
 .excel {
-    background-color: #4CAF50; /* Warna hijau lembut */
+    background-color: #4CAF50;
+    /* Warna hijau lembut */
     color: white;
     border: none;
     padding: 10px 20px;
     font-size: 16px;
-    border-radius: 30px; /* Membuat sudut lebih membulat */
+    border-radius: 30px;
+    /* Membuat sudut lebih membulat */
     transition: background-color 0.3s ease, transform 0.2s ease;
     display: inline-flex;
     align-items: center;
@@ -243,14 +245,42 @@ body {
 }
 
 .excel:hover {
-    background-color: #45a049; /* Warna hijau lebih gelap saat hover */
-    transform: translateY(-3px); /* Efek naik sedikit saat dihover */
+    background-color: #45a049;
+    /* Warna hijau lebih gelap saat hover */
+    transform: translateY(-3px);
+    /* Efek naik sedikit saat dihover */
 }
 
 .excel i {
-    margin-right: 8px; /* Memberikan jarak antara icon dan teks */
+    margin-right: 8px;
+    /* Memberikan jarak antara icon dan teks */
 }
 
 .excel:active {
-    transform: translateY(1px); /* Efek menurun sedikit saat di klik */
+    transform: translateY(1px);
+    /* Efek menurun sedikit saat di klik */
+}
+
+/* Tambahkan di content.css */
+.tambah-matakuliah {
+    display: inline-block;
+    padding: 10px 20px;
+    font-size: 16px;
+    color: white;
+    background-color: #4CAF50;
+    /* Warna hijau */
+    text-align: center;
+    text-decoration: none;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    text-decoration: none;
+
+}
+
+.tambah-matakuliah:hover {
+    background-color: #45a049;
+    /* Warna hijau lebih gelap saat hover */
+    /* Hilangkan garis bawah saat hover */
 }

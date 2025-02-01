@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\Tahun;
+use App\Models\Jurusan;
+use App\Models\Matakuliah;
 use App\Models\Perwalian;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -57,5 +59,34 @@ class MatakuliahController extends Controller
         return view('mahasiswa.view-jadwal', [
             'jadwal' => $jadwalMahasiswa,
         ]);
+    }
+
+
+    public function halamanTambahMatakuliah()
+    {
+        $dataJurusan = Jurusan::all();
+        return view('management-matakuliah.tambah-matakuliah', ['jurusan' => $dataJurusan]);
+    }
+
+
+    public function simpanMatakuliah(Request $request)
+    {
+        $request->validate([
+            'nama_matakuliah' => 'required|string|max:255',
+            'sks' => 'required|integer',
+            'semester' => 'required|integer',
+            'id_jurusan' => 'required|integer',
+        ]);
+
+        $data = [
+            'nama_matakuliah' => $request->nama_matakuliah,
+            'sks' => $request->sks,
+            'semester' => $request->semester,
+            'id_jurusan' => $request->id_jurusan,
+        ];
+
+        Matakuliah::create($data);
+
+        return redirect()->route('sekre.view.matkul')->with('success', 'Data Matakuliah berhasil disimpan!');
     }
 }
