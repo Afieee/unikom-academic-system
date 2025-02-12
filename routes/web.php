@@ -5,6 +5,7 @@ use App\Http\Controllers\LoginController;
 use App\Http\Controllers\MatakuliahController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\RegisterController;
+use App\Models\Matakuliah;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
@@ -60,3 +61,7 @@ Route::get('/dosen-view-penilaian', [AkademisiController::class, 'viewPenilaian'
 Route::get('/dosen-update-penilaian/{id_perwalian}', [AkademisiController::class, 'halamanUpdateNilai'])->name('halamanUpdateNilai');
 
 Route::put('/dosen-update-penilaian/{id_perwalian}', [AkademisiController::class, 'updateNilai'])->name('updateNilai');
+
+Route::delete('/hapus-matakuliah/{id_matakuliah}', [MatakuliahController::class, 'hapusMatakuliah']);
+Route::get('/halaman-update-matakuliah/{id_matakuliah}', [MatakuliahController::class, 'halamanUpdateMatakuliah'])->name('halamanUpdateMatakuliah');
+Route::put('/matakuliah-edit/{id_matakuliah}', [MatakuliahController::class, 'updateMatakuliah'])->name('updateMatakuliah');

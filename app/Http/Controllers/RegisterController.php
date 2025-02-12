@@ -47,13 +47,7 @@ class RegisterController extends Controller
         $akademisi->role = $request->role;
         $akademisi->semester = $request->semester;
         $akademisi->id_jurusan = $request->id_jurusan;
-        // if($akademisi->role == 'mahasiswa'){
-        //     $perwalian = new Perwalian();
-        //     $perwalian->nim = $request->nim_atau_nip;
-        //     $perwalian->save();
 
-
-        // }
         $akademisi->save();
 
         // Setelah data akademisi tersimpan, simpan data ke tabel 'users'
@@ -61,7 +55,6 @@ class RegisterController extends Controller
         $user->nim_atau_nip = $request->nim_atau_nip; // nim_atau_nip harus sama dengan yang di tabel akademisi
         $user->name = $request->name;
         $user->password = Hash::make($request->password);
-        // $user->password = $request->password;
         $user->role = $request->role;
         $user->save();
 

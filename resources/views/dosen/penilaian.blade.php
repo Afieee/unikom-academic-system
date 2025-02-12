@@ -22,8 +22,15 @@
                     <span>
                         Menunggu Penilaian
                     </span>
-                    <span class="date-range">
-                        Jumlah : {{ $countBelumDinilai->nilai_mahasiswa_yang_belum_dinilai }} </span>
+                    @if (optional($countBelumDinilai)->nilai_mahasiswa_yang_belum_dinilai > 0)
+                        <span class="date-range">
+                            Jumlah : {{ optional($countBelumDinilai)->nilai_mahasiswa_yang_belum_dinilai }}
+                        </span>
+                    @else
+                        <span class="date-range">
+                            Jumlah : 0
+                        </span>
+                    @endif
                 </div>
             </div>
             <div class="card">

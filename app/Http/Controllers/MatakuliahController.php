@@ -4,8 +4,9 @@ namespace App\Http\Controllers;
 
 use App\Models\Tahun;
 use App\Models\Jurusan;
-use App\Models\Matakuliah;
+use App\Models\Akademisi;
 use App\Models\Perwalian;
+use App\Models\Matakuliah;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
@@ -88,5 +89,53 @@ class MatakuliahController extends Controller
         Matakuliah::create($data);
 
         return redirect()->route('sekre.view.matkul')->with('success', 'Data Matakuliah berhasil disimpan!');
+    }
+
+
+
+
+
+
+
+
+
+    public function hapusMatakuliah($id_matakuliah)
+    {
+        Matakuliah::where('id_matakuliah', $id_matakuliah)->delete();
+
+        return redirect()->back()->with('success', 'Matakuliah berhasil dihapus.');
+    }
+
+    public function halamanUpdateMatakuliah($id_matakuliah)
+    {
+        $jumlahDosen = Akademisi::where('role', 'dosen')->count();
+        $jumlahMahasiswa = Akademisi::where('role', 'mahasiswa')->count();
+        $jumlahSekretariat = Akademisi::where('role', 'sekretariat')->count();
+        $matakuliah = Matakuliah::findOrFail($id_matakuliah);
+
+        return view('management-matakuliah.update-matakuliah', [
+            'matakuliah' => $matakuliah,
+            'jumlahDosen' => $jumlahDosen,
+            'jumlahMahasiswa' => $jumlahMahasiswa,
+            'jumlahSekretariat' => $jumlahSekretariat,
+        ]);
+    }
+
+    public function updateMatakuliah(Request $request, $id_matakuliah)
+    {
+        $request->validate([
+            'sks' => 'required',
+            'semester' => 'required',
+        ]);
+
+        $matakuliah = Matakuliah::findOrFail($id_matakuliah);
+
+
+        $matakuliah->update([
+            'sks' => $request->sks,
+            'semester' => $request->semester,
+        ]);
+
+        return redirect()->to('/manajemen-view-matakuliah')->with('success', 'Data Berhasil Diubah');
     }
 }

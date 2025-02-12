@@ -2,11 +2,61 @@
     <link rel="stylesheet" href="{{ asset('css/content.css') }}">
     <link rel="stylesheet" href="{{ asset('css/table.css') }}">
     <link rel="stylesheet" href="{{ asset('css/search.css') }}">
+    <style>
+        .btn-update {
+            background-color: #008CBA;
+            color: white;
+            border: none;
+            padding: 8px 12px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 14px;
+            transition: 0.3s ease-in-out;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .btn-update:hover {
+            background-color: #005f73;
+        }
+
+        .btn-delete {
+            background-color: #ff4d4d;
+            color: white;
+            border: none;
+            padding: 8px 12px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 14px;
+            transition: 0.3s ease-in-out;
+        }
+
+        .btn-delete:hover {
+            background-color: #cc0000;
+        }
+
+        /* Menjadikan tombol update & delete sejajar */
+        .action-buttons {
+            display: flex;
+            gap: 10px;
+        }
+
+        .action-buttons form {
+            margin: 0;
+        }
+    </style>
 
 
     <script src="{{ asset('js/time.js') }}"></script>
 
     <div class="content">
+        @if (session('success'))
+            <script>
+                window.onload = function() {
+                    alert("{{ session('success') }}");
+                };
+            </script>
+        @endif
         <div class="page-title">
             <i class="fas fa-home"></i>
             <h1>Matakuliah</h1>
@@ -60,7 +110,7 @@
                         <th>SKS</th>
                         <th>Semester</th>
                         <th>Jurusan</th>
-                        {{-- <th>Nama Jurusan</th> --}}
+                        <th>Aksi</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -70,10 +120,24 @@
                             <td>{{ $matakuliah->nama_matakuliah }}</td>
                             <td>{{ $matakuliah->sks }}</td>
                             <td>{{ $matakuliah->semester }}</td>
-
                             <td>{{ $matakuliah->jurusan ? $matakuliah->jurusan->nama_jurusan : 'Jurusan tidak tersedia' }}
                             </td>
+                            <td>
+                                <div class="action-buttons">
+                                    <a href="{{ route('halamanUpdateMatakuliah', $matakuliah->id_matakuliah) }}"
+                                        class="btn-update">
+                                        Update
+                                    </a>
 
+                                    <form action="{{ url('/hapus-matakuliah/' . $matakuliah->id_matakuliah) }}"
+                                        method="POST"
+                                        onsubmit="return confirm('Apakah Anda Ingin Menghapus Matakuliah ini?')">
+                                        @csrf
+                                        @method('DELETE')
+                                        <button type="submit" class="btn-delete">Delete</button>
+                                    </form>
+                                </div>
+                            </td>
                         </tr>
                     @endforeach
                 </tbody>
